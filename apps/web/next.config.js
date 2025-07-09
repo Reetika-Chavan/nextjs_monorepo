@@ -1,8 +1,9 @@
-/** @type {import('next').NextConfig} */
+// apps/web/next.config.js (ESM version)
+
 const nextConfig = {
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
