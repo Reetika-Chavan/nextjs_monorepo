@@ -22,6 +22,15 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        {/* 👇 Added start image */}
+        <Image
+          src="https://dev11-images.csnonprod.com/v3/assets/blt210e3fdbc80b0a67/bltd08ae3202a3a4a3f/charles.avif"
+          alt="Charles"
+          width={300}
+          height={200}
+          priority
+        />
+
         <ThemeImage
           className={styles.logo}
           srcLight="turborepo-dark.svg"
