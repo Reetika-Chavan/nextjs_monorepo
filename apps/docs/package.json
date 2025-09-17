@@ -11,7 +11,9 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@contentstack/live-preview-utils": "^4.0.1",
     "@repo/ui": "*",
+    "contentstack": "^3.26.2",
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
