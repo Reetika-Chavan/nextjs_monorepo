@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic"; 
+// apps/docs/app/test/page.tsx
+export const dynamic = "force-dynamic";
 export const fetchCache = "default-no-store";
 
 export default async function DriverPage() {
@@ -9,7 +10,7 @@ export default async function DriverPage() {
   const { driver, timestamp } = await res.json();
 
   if (!driver) {
-    return <p>Failed to load driver entry.</p>;
+    return <p className="p-4 text-red-500">Failed to load driver entry.</p>;
   }
 
   return (

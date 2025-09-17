@@ -1,5 +1,9 @@
+// apps/docs/app/api/testing/route.ts
 import { NextResponse } from "next/server";
 import { Stack } from "../../../lib/contentstack";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "default-no-store";
 
 export async function GET() {
   try {
@@ -7,18 +11,17 @@ export async function GET() {
     const [entries] = await Query.toJSON().find();
     const driver = entries?.[0] || null;
 
-    const response = NextResponse.json({
+    const res = NextResponse.json({
       driver,
       timestamp: new Date().toISOString(),
     });
 
-    // 👇 Required for Launch cache purge
-    response.headers.set("Cache-Tag", "formula");
-    response.headers.set("Cache-Control", "public, max-age=0, s-maxage=40");
+    // ✅ Add cache headers + tags
+    res.headers.set("Cache-Tag", "drivers");
+    res.headers.set("Cache-Control", "public, max-age=0, s-maxage=60");
 
-    return response;
-  } catch (error) {
-    console.error("test fetch error:", error);
-    return NextResponse.json({ error: "Failed to load driver" }, { status: 500 });
+    return res;
+  } catch (err) {
+    return NextResponse.json({ error: "Failed to fetch driver" }, { status: 500 });
   }
 }
