@@ -1,9 +1,8 @@
-// apps/docs/app/test/page.tsx
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"; 
 export const fetchCache = "default-no-store";
 
 export default async function DriverPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/testing`, {
+  const res = await fetch(`/api/testing`, {
     cache: "no-store",
   });
 
